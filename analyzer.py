@@ -29,6 +29,25 @@ for log in failed_logins:
     else:
         ip_count[ip] = 1
 
+print("\n===== SOC SUMMARY =====")
+
+total_failed = len(failed_logins)
+print(f"Total Failed Logins: {total_failed}")
+
+print("\nTop Attacker IP:")
+
+top_ip = max(ip_count, key=ip_count.get)
+print(f"{top_ip} ({ip_count[top_ip]} attempts)")
+
+high = sum(1 for c in ip_count.values() if c >= 3)
+medium = sum(1 for c in ip_count.values() if c == 2)
+low = sum(1 for c in ip_count.values() if c == 1)
+
+print("\nAlert Breakdown:")
+print(f"High Risk IPs: {high}")
+print(f"Medium Risk IPs: {medium}")
+print(f"Low Risk IPs: {low}")
+
 # Output results
 print("\nSECURITY ALERT REPORT\n")
 

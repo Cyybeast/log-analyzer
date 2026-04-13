@@ -1,34 +1,23 @@
-# 🛡️ Log Analyzer (Beginner SIEM Project)
+# 🛡️ Log Analyzer (Mini SIEM - SOC Project)
 
 ## 📌 Overview
-This project simulates a basic SIEM (Security Information and Event Management) tool.
+This project simulates a Security Information and Event Management (SIEM) tool built in Python.
 
-It analyzes log files to detect:
-- Failed login attempts
-- Suspicious IP addresses
-- Repeated login failures (possible brute-force attacks)
+It analyzes log files to detect suspicious authentication activity and generates SOC-style security reports.
 
-## 🛠️ Tools Used
-- Python
-- Git & GitHub
+---
 
-## 📂 Project Structure
-- analyzer.py → Main script
-- sample.log → Sample log data
+## ⚙️ Features
+- Detects failed login attempts
+- Identifies suspicious IP addresses
+- Classifies threats (LOW / MEDIUM / HIGH)
+- Identifies top attacker IP
+- Generates SOC-style summary report
+- Command-line interface support
 
-## 🚀 How It Works
-The script:
-1. Reads log entries
-2. Filters failed login attempts
-3. Extracts IP addresses
-4. Detects repeated login attempts
+---
 
-## 🎯 Skills Demonstrated
-- Log analysis
-- Threat detection
-- Python scripting
-- Security mindset
+## 📂 Usage
 
-## 🔮 Future Improvements
-- Real-time log monitoring
-- Export alerts to file
+```bash
+python analyzer.py sample.log

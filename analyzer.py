@@ -1,15 +1,25 @@
+import sys
+
+# Check if user provided a file
+if len(sys.argv) < 2:
+    print("Usage: python analyzer.py <logfile>")
+    sys.exit()
+
+log_file = sys.argv[1]
+
 failed_logins = []
 ip_count = {}
 
-with open("sample.log", "r") as file:
+# Read log file
+with open(log_file, "r") as file:
     logs = file.readlines()
 
-# Step 1: Find failed logins
+# Find failed logins
 for line in logs:
     if "Failed login" in line:
         failed_logins.append(line)
 
-# Step 2: Count IP attempts
+# Count IP attempts
 for log in failed_logins:
     parts = log.split()
     ip = parts[-1]
@@ -19,8 +29,8 @@ for log in failed_logins:
     else:
         ip_count[ip] = 1
 
-# Step 3: Display + Save alerts
-print("SECURITY ALERT REPORT\n")
+# Output results
+print("\nSECURITY ALERT REPORT\n")
 
 with open("report.txt", "w", encoding="utf-8") as report:
     report.write("SECURITY ALERT REPORT\n\n")
